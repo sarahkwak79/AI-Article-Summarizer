@@ -1,13 +1,13 @@
-import linkIcon from './link.svg'
+import linkIcon from './link.png'
 import loader from './loader.svg'
-import copy from './copy.svg'
-import logo from './logo.svg'
-import tick from './tick.svg'
+import copy from './copy.png'
+import check from './check.png'
+import close from './close.png'
 
 export {
     linkIcon,
     loader,
     copy,
-    logo,
-    tick
+    check,
+    close
 }

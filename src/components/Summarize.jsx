@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
-import { copy, linkIcon, loader, tick } from "../assets";
+import { copy, linkIcon, loader, check, close } from "../assets";
 import { useLazyGetSummaryQuery } from "../services/article";
 
-const Demo = () => {
+const Summarize = () => {
   const [article, setArticle] = useState({
     url: "",
     summary: "",
@@ -46,9 +46,14 @@ const Demo = () => {
     setTimeout(() => setCopied(false), 3000);
   };
 
+  const handleDelete = (index) => {
+    const updatedAllArticles = allArticles.filter((_, i) => i !== index);
+    setAllArticles(updatedAllArticles);
+    localStorage.setItem("articles", JSON.stringify(updatedAllArticles));
+  };
+
   return (
     <section className="mt-16 w-full max-w-xl">
-      {/* {Search} */}
       <div className="flex flex-col u-full gap-2">
         <form
           className="relative flex justify-center items-center"
@@ -85,20 +90,29 @@ const Demo = () => {
               onClick={() => setArticle(item)}
               className="link_card"
             >
-              <div className="copy_btn" onClick={() =>
-            handleCopy(item.url)}>
+              <button className="copy_btn" onClick={() => handleCopy(item.url)}>
                 <img
-                  src={copied === item.url ? tick : copy} 
+                  src={copied === item.url ? check : copy}
                   alt="copy_icon"
                   className="w-[40%] h-[40%] objext-contain"
                 />
-              </div>
+              </button>
               <p
                 className="flex-1 font-satoshi
                     text-blue-700 font-medium text-sm truncate"
               >
                 {item.url}
               </p>
+              <button
+                className="delete_btn"
+                onClick={() => handleDelete(index)}
+              >
+                <img
+                  src={close}
+                  alt="delete_icon"
+                  className="w-[40%] h-[40%] objext-contain"
+                />
+              </button>
             </div>
           ))}
         </div>
@@ -108,7 +122,7 @@ const Demo = () => {
           <img src={loader} alt="loader" className="w-20 h-20 object-contain" />
         ) : error ? (
           <p className="font-inter font-bold text-black text-center">
-            Well, that is not supposed to happen...
+            Something went wrong...
             <br />
             <span className="font-satoshi font-normal text-gray-700">
               {error?.data?.error}
@@ -133,4 +147,4 @@ const Demo = () => {
   );
 };
 
-export default Demo;
+export default Summarize;
