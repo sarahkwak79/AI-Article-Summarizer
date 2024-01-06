@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { copy, linkIcon, loader, check, close } from "../assets";
+import { copy, linkIcon, loader, check, close, enter } from "../assets";
 import { useLazyGetSummaryQuery } from "../services/article";
 
 const Summarize = () => {
@@ -79,7 +79,11 @@ const Summarize = () => {
             className="submit_btn
            peer-focus:border-gray-700 peer-focus:text-gray-700"
           >
-            ↵
+            <img
+              src={enter}
+              alt="enter_icon"
+              className="w-[40%] h-[40%] objext-contain"
+            />
           </button>
         </form>
 
