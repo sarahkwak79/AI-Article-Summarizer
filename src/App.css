@@ -50,9 +50,9 @@
     radial-gradient(at 97% 21%, rgb(228, 92, 207) 0px, transparent 50%),
     radial-gradient(at 52% 99%, rgb(249, 155, 155) 0px, transparent 50%),
     radial-gradient(at 10% 29%, rgb(80, 60, 255) 0px, transparent 50%),
-    radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 1) 0px, transparent 50%),
-    radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 1) 0px, transparent 50%),
-    radial-gradient(at 79% 53%, rgb(255, 190, 208) 0px, transparent 50%);
+    radial-gradient(at 97% 96%, rgb(254, 250, 240) 0px, transparent 50%),
+    radial-gradient(at 33% 50%, rgb(255, 255, 247) 0px, transparent 50%),
+    radial-gradient(at 79% 53%, rgb(236, 110, 146) 0px, transparent 50%);
   position: absolute;
   content: "";
   width: 100%;
@@ -87,7 +87,7 @@
 }
 
 .purple_gradient {
-  @apply bg-gradient-to-r from-purple-400 via-purple-300 to-pink-200 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-blue-900 via-purple-300 to-pink-300 bg-clip-text text-transparent;
 }
 
 .desc {
